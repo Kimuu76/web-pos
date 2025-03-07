@@ -24,7 +24,7 @@ const app = express();
 
 app.use(
 	cors({
-		origin: "https://web-pos.onrender.com",
+		origin: "https://web-pos-1.onrender.com",
 		methods: ["GET", "POST", "PUT", "DELETE"],
 		credentials: true, // Allow cookies
 		allowedHeaders: ["Content-Type", "Authorization"], // Make sure Authorization is allowed
