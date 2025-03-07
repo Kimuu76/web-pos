@@ -1,0 +1,34 @@
+{
+	"name": "server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server/server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"start": "node server.js",
+		"migrate": "npx sequelize-cli db:migrate",
+		"migrate:undo": "npx sequelize-cli db:migrate:undo:all",
+		"seed": "npx sequelize-cli db:seed:all"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Kimuu76/pos-backend.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"type": "commonjs",
+	"bugs": {
+		"url": "https://github.com/Kimuu76/pos-backend/issues"
+	},
+	"homepage": "https://github.com/Kimuu76/pos-backend#readme",
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^16.4.7",
+		"express": "^4.21.2",
+		"mysql2": "^3.12.0",
+		"sequelize": "^6.37.5",
+		"sqlite3": "^5.1.7",
+		"tedious": "^18.6.1"
+	}
+}
