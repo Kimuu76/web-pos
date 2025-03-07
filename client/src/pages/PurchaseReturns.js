@@ -33,9 +33,7 @@ const PurchaseReturns = () => {
 
 	const fetchPurchases = async () => {
 		try {
-			const response = await axios.get(
-				"https://web-pos-1.onrender.com/purchases"
-			);
+			const response = await axios.get("https://web-pos-1.onrender.com");
 			setPurchases(response.data);
 		} catch (error) {
 			console.error("❌ Error fetching purchases:", error);
@@ -44,9 +42,7 @@ const PurchaseReturns = () => {
 
 	const fetchPurchaseReturns = async () => {
 		try {
-			const response = await axios.get(
-				"https://web-pos-1.onrender.com/purchase-returns"
-			);
+			const response = await axios.get("https://web-pos-1.onrender.com");
 			console.log("📥 Fetched Purchase Returns:", response.data);
 			setPurchaseReturns(response.data);
 		} catch (error) {
@@ -56,9 +52,7 @@ const PurchaseReturns = () => {
 
 	const fetchProducts = async () => {
 		try {
-			const response = await axios.get(
-				"https://web-pos-1.onrender.com/products"
-			);
+			const response = await axios.get("https://web-pos-1.onrender.com");
 			setProducts(response.data);
 		} catch (error) {
 			console.error("❌ Error fetching products:", error);
@@ -93,10 +87,7 @@ const PurchaseReturns = () => {
 
 			console.log("🔍 Submitting purchase return:", returnData);
 
-			await axios.post(
-				"https://web-pos-1.onrender.com/purchase-returns",
-				returnData
-			);
+			await axios.post("https://web-pos-1.onrender.com", returnData);
 			alert("✅ Purchase return processed successfully!");
 
 			fetchPurchaseReturns();
@@ -123,9 +114,7 @@ const PurchaseReturns = () => {
 			return;
 
 		try {
-			await axios.delete(
-				`https://web-pos-1.onrender.com/purchase-returns/${id}`
-			);
+			await axios.delete(`https://web-pos-1.onrender.com/${id}`);
 
 			// ✅ Remove the deleted return from UI
 			setPurchaseReturns((prevReturns) =>
@@ -146,14 +135,11 @@ const PurchaseReturns = () => {
 
 	const updatePurchaseReturn = async () => {
 		try {
-			await axios.put(
-				`https://web-pos-1.onrender.com/purchase-returns/${editingReturn.id}`,
-				{
-					quantity: editingReturn.quantity,
-					refundAmount: editingReturn.refundAmount,
-					reason: editingReturn.reason,
-				}
-			);
+			await axios.put(`https://web-pos-1.onrender.com/${editingReturn.id}`, {
+				quantity: editingReturn.quantity,
+				refundAmount: editingReturn.refundAmount,
+				reason: editingReturn.reason,
+			});
 
 			setEditingReturn(null);
 			fetchPurchaseReturns();

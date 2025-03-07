@@ -14,9 +14,7 @@ const Header = () => {
 	useEffect(() => {
 		const fetchCompanyName = async () => {
 			try {
-				const response = await axios.get(
-					"https://web-pos-1.onrender.com/company"
-				);
+				const response = await axios.get("https://web-pos-1.onrender.com");
 				if (response.data?.name) {
 					setCompanyName(response.data.name);
 				}

@@ -63,7 +63,7 @@ const Sales = () => {
 
 	const fetchSales = async () => {
 		try {
-			const response = await axios.get("https://web-pos-1.onrender.com/sales");
+			const response = await axios.get("https://web-pos-1.onrender.com");
 			console.log(response.data);
 		} catch (error) {
 			console.error("Error fetching sales data:", error.message);
@@ -72,7 +72,7 @@ const Sales = () => {
 	};
 
 	const fetchProducts = async () => {
-		const response = await axios.get("https://web-pos-1.onrender.com/products");
+		const response = await axios.get("https://web-pos-1.onrender.com");
 		setProducts(response.data);
 	};
 
@@ -118,12 +118,9 @@ const Sales = () => {
 				quantity: item.quantity,
 			}));
 
-			const response = await axios.post(
-				"https://web-pos-1.onrender.com/sales",
-				{
-					items: saleItems,
-				}
-			);
+			const response = await axios.post("https://web-pos-1.onrender.com", {
+				items: saleItems,
+			});
 
 			setReceipts([response.data.receipt]); // ✅ Save the receipt
 
