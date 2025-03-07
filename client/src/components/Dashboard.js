@@ -33,7 +33,9 @@ const Dashboard = () => {
 
 	const fetchDashboardData = async () => {
 		try {
-			const response = await axios.get("http://localhost:5000/dashboard");
+			const response = await axios.get(
+				"https://web-pos-1.onrender.com/dashboard"
+			);
 			setDashboardData(response.data);
 		} catch (error) {
 			console.error("❌ Error fetching dashboard data:", error);
