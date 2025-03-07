@@ -42,16 +42,20 @@ const Reports = () => {
 				suppliersRes,
 				stockPricesRes,
 			] = await Promise.all([
-				axios.get("http://localhost:5000/reports/sales?filter=${filter"),
 				axios.get(
-					"http://localhost:5000/reports/sales-returns?filter=${filter"
+					"https://web-pos-1.onrender.com/reports/sales?filter=${filter"
 				),
-				axios.get("http://localhost:5000/reports/purchases?filter=${filter"),
 				axios.get(
-					"http://localhost:5000/reports/purchase-returns?filter=${filter"
+					"https://web-pos-1.onrender.com/reports/sales-returns?filter=${filter"
 				),
-				axios.get("http://localhost:5000/reports/suppliers"),
-				axios.get("http://localhost:5000/reports/stock-prices"),
+				axios.get(
+					"https://web-pos-1.onrender.com/reports/purchases?filter=${filter"
+				),
+				axios.get(
+					"https://web-pos-1.onrender.com/reports/purchase-returns?filter=${filter"
+				),
+				axios.get("https://web-pos-1.onrender.com/reports/suppliers"),
+				axios.get("https://web-pos-1.onrender.com/reports/stock-prices"),
 			]);
 
 			console.log("Sales Data:", salesRes.data); // ✅ Debugging

@@ -33,7 +33,9 @@ const PurchaseReturns = () => {
 
 	const fetchPurchases = async () => {
 		try {
-			const response = await axios.get("http://localhost:5000/purchases");
+			const response = await axios.get(
+				"https://web-pos-1.onrender.com/purchases"
+			);
 			setPurchases(response.data);
 		} catch (error) {
 			console.error("❌ Error fetching purchases:", error);
@@ -43,7 +45,7 @@ const PurchaseReturns = () => {
 	const fetchPurchaseReturns = async () => {
 		try {
 			const response = await axios.get(
-				"http://localhost:5000/purchase-returns"
+				"https://web-pos-1.onrender.com/purchase-returns"
 			);
 			console.log("📥 Fetched Purchase Returns:", response.data);
 			setPurchaseReturns(response.data);
@@ -54,7 +56,9 @@ const PurchaseReturns = () => {
 
 	const fetchProducts = async () => {
 		try {
-			const response = await axios.get("http://localhost:5000/products");
+			const response = await axios.get(
+				"https://web-pos-1.onrender.com/products"
+			);
 			setProducts(response.data);
 		} catch (error) {
 			console.error("❌ Error fetching products:", error);
@@ -89,7 +93,10 @@ const PurchaseReturns = () => {
 
 			console.log("🔍 Submitting purchase return:", returnData);
 
-			await axios.post("http://localhost:5000/purchase-returns", returnData);
+			await axios.post(
+				"https://web-pos-1.onrender.com/purchase-returns",
+				returnData
+			);
 			alert("✅ Purchase return processed successfully!");
 
 			fetchPurchaseReturns();
@@ -116,7 +123,9 @@ const PurchaseReturns = () => {
 			return;
 
 		try {
-			await axios.delete(`http://localhost:5000/purchase-returns/${id}`);
+			await axios.delete(
+				`https://web-pos-1.onrender.com/purchase-returns/${id}`
+			);
 
 			// ✅ Remove the deleted return from UI
 			setPurchaseReturns((prevReturns) =>
@@ -138,7 +147,7 @@ const PurchaseReturns = () => {
 	const updatePurchaseReturn = async () => {
 		try {
 			await axios.put(
-				`http://localhost:5000/purchase-returns/${editingReturn.id}`,
+				`https://web-pos-1.onrender.com/purchase-returns/${editingReturn.id}`,
 				{
 					quantity: editingReturn.quantity,
 					refundAmount: editingReturn.refundAmount,

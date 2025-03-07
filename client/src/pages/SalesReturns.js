@@ -45,7 +45,7 @@ const SalesReturns = () => {
 
 	const fetchSales = async () => {
 		try {
-			const response = await axios.get("http://localhost:5000/sales");
+			const response = await axios.get("https://web-pos-1.onrender.com/sales");
 			setSales(response.data);
 		} catch (error) {
 			console.error("Error fetching sales:", error);
@@ -54,7 +54,9 @@ const SalesReturns = () => {
 
 	const fetchSalesReturns = async () => {
 		try {
-			const response = await axios.get("http://localhost:5000/sales-returns");
+			const response = await axios.get(
+				"https://web-pos-1.onrender.com/sales-returns"
+			);
 			console.log("✅ Sales Returns Data:", response.data); // Debugging
 
 			if (!response.data || response.data.length === 0) {
@@ -79,11 +81,14 @@ const SalesReturns = () => {
 		setError("");
 
 		try {
-			const response = await axios.post("http://localhost:5000/sales-returns", {
-				saleId,
-				returnQuantity,
-				reason,
-			});
+			const response = await axios.post(
+				"https://web-pos-1.onrender.com/sales-returns",
+				{
+					saleId,
+					returnQuantity,
+					reason,
+				}
+			);
 
 			setSalesReturns([...salesReturns, response.data.salesReturn]);
 			setNewReturn({ saleId: "", returnQuantity: "", reason: "" });

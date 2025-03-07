@@ -15,7 +15,7 @@ const SalesChart = () => {
 	const [data, setData] = useState([]);
 
 	useEffect(() => {
-		axios.get("http://localhost:5000/products").then((res) => {
+		axios.get("https://web-pos-1.onrender.comproducts").then((res) => {
 			setData(
 				res.data.map((product) => ({
 					name: product.name,

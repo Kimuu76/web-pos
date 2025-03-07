@@ -12,7 +12,9 @@ const Receipt = ({ receipt, autoPrint }) => {
 	useEffect(() => {
 		const fetchCompanyName = async () => {
 			try {
-				const response = await axios.get("http://localhost:5000/company");
+				const response = await axios.get(
+					"https://web-pos-1.onrender.com/company"
+				);
 				if (response.data?.name) {
 					setCompanyName(response.data.name);
 				}
